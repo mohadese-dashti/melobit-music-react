@@ -1,0 +1,47 @@
+*{
+  color: white;
+}
+body{
+    background-color: #001534 !important;
+}
+.search{
+  background-color:#FFFEFE66;
+  width: 152px;
+  height: 30px;
+  border-radius: 50px;
+  padding: 0 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.carousel svg{
+  cursor: pointer;
+}
+
+.romance{
+  background-image: url(https://img.melobit.com/PkOQB2XJ9hQAH8NiuI1ViiHSZXb9-u4B1USk_S3DeNU/rs:fill:280:175:1/dpr:1/Y292ZXJzL2xvdmUucG5n);
+  background-size: cover;
+  height: 200px;
+  opacity: 0.8;
+  background-position: center;
+}
+.dance{
+  background-image: url(https://img.melobit.com/Thxqr7iSY1dH9ZXupydmMq0ZIKyV7jiFjwvzEeei_jQ/rs:fill:280:175:1/dpr:1/Y292ZXJzL2RhbmNlLnBuZw);
+  background-size: cover;
+  height: 200px;
+  opacity: 0.8;
+  background-position: center;
+}
+.happy{
+  background-image: url(https://img.melobit.com/Qd8WQgPBDjCGvlw0sTF4gMk0baWwrFRIvic4UcjG4Gw/rs:fill:280:175:1/dpr:1/Y292ZXJzL2hhcHB5LnBuZw);
+  background-size: cover;
+  height: 200px;
+  opacity: 0.8;
+  background-position: center;
+}
+.sad{
+  background-image: url(https://img.melobit.com/zNQsRGHbBiwwSkzBfrpIixkKRZK3ANFeLadwANMyUaM/rs:fill:280:175:1/dpr:1/Y292ZXJzL3NhZC5wbmc);
+  background-size: cover;
+  height: 200px;
+  opacity: 0.8;
+  background-position: center;
+}
