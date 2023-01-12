@@ -5,7 +5,8 @@ const Home = () => {
 
     const [slide,setSlide]=useState([])
     const [newSongs,setNew]=useState([])
-   
+    const [day,setDay]=useState([])
+
     useEffect(()=>{
 
         const getApiSlider=async () =>{
@@ -25,8 +26,18 @@ const Home = () => {
                console.log(data.results)
            })
        }
+       const getApiDay=async () =>{
+        await fetch(' https://api-beta.melobit.com/v1/song/top/day/0/5')
+         .then(Response=>Response.json())
+         .then(data=>{
+             setDay(data.results)
+             console.log(data.results)
+         })
+     }
        getApiSlider()
        getApiNewSongs()
+       getApiDay()
+      
 
   },[])
     return (
@@ -41,13 +52,13 @@ slide.map((s,i)=>(
  <img src={s.image.slider.url} className="d-block w-100" alt="slide" />
       <div className="carousel-caption text-start">
         <h5>
-           {/* <Link to={`details/${s.id}`} className='text-decoration-none'>
-            
-          </Link>  */}
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+           <Link to={`details/${s.id}`} className='text-decoration-none'>
+           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-play-circle" viewBox="0 0 16 16">
   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
   <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
 </svg>
+          </Link> 
+
         </h5>
       </div>
       </div>
@@ -93,13 +104,31 @@ slide.map((s,i)=>(
             {
                 newSongs.map((song)=>(
                     <div className='col-md col-sm-12 col-12 mt-3'key={song.id}>
+                    <Link to={`details/${song.id}`} className='text-decoration-none'>
                     <img src={song.album.image.cover.url} className='w-100' alt={song.album.name.replace('Single','')}/>
+                    </Link>
                     <h4 className='mt-2'>{song.album.name.replace('Single','')}</h4>
                     <h4 >{song.album.artists[0].fullName}</h4>
                     </div>
                 ))
             }
         </div>
+        <div className='row mt-5 text-center '>
+               <h2>TOP SONG</h2>
+            {
+                day.map((song)=>(
+                    <div className='col-md col-sm-12 col-12 mt-3'key={song.id}>
+                    <Link to={`details/${song.id}`} className='text-decoration-none'>
+                    <img src={song.album.image.cover.url} className='w-100' alt={song.album.name.replace('Single','')}/>
+                    </Link>
+                    <h4 className='mt-2'>{song.album.name.replace('Single','')}</h4>
+                    <h4 >{song.album.artists[0].fullName}</h4>
+                    </div>
+                ))
+            }
+        </div>
+
+
       </div>
     );
 };
