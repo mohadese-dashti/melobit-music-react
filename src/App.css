@@ -45,3 +45,8 @@ body{
   opacity: 0.8;
   background-position: center;
 }
+
+.card-body  svg{
+margin:10px;
+cursor: pointer;
+}
